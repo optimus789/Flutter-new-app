@@ -16,10 +16,9 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(title: Text("Awesome App")),
         body: Container(
             width: 500,
-            color: Colors.teal,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                   padding: const EdgeInsets.all(10),
