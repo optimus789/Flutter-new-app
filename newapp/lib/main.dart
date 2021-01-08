@@ -13,67 +13,50 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Awesome App")),
-        body: Container(
-            width: 500,
-            color: Colors.teal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  height: 100,
-                  width: 100,
-                  clipBehavior: Clip.antiAlias,
-                  alignment: Alignment.topLeft,
-                  decoration: BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.circular(10),
-                      gradient:
-                          LinearGradient(colors: [Colors.pink, Colors.yellow]),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 21,
-                        )
-                      ]),
-                  child: Text(
-                    "I am a box",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  height: 100,
-                  width: 100,
-                  clipBehavior: Clip.antiAlias,
-                  alignment: Alignment.topLeft,
-                  decoration: BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.circular(10),
-                      gradient:
-                          LinearGradient(colors: [Colors.blue, Colors.yellow]),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 21,
-                        )
-                      ]),
-                  child: Text(
-                    "I am a box",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            )));
+      appBar: AppBar(title: Text("Awesome App")),
+      body: Center(
+        child: Card(
+          child: Column(children: [Image.asset("assets/bgjpeg.jpg")]),
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: const EdgeInsets.all(0),
+          children: [
+            UserAccountsDrawerHeader(
+              accountName: Text("Vinay Sudrik"),
+              accountEmail: Text("vinaysudrik@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    "https://www.static-contents.youth4work.com/y4w/Images/Users/3279383.png?v=20180202084143"),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Rushikesh Kardile"),
+              subtitle: Text("Director"),
+              trailing: Icon(Icons.edit),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Aniket Tandale"),
+              subtitle: Text("Director"),
+              trailing: Icon(Icons.edit),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Vinay Sudrik"),
+              subtitle: Text("Python Developer"),
+              trailing: Icon(Icons.edit),
+            )
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.edit),
+      ),
+    );
   }
 }
