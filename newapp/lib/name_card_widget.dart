@@ -13,32 +13,30 @@ class NameCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Card(
-        child: Column(children: [
-          Image.asset("assets/bgjpeg.jpg"),
-          SizedBox(
-            height: 20,
+    return Card(
+      child: Column(children: [
+        Image.asset("assets/bgjpeg.jpg"),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          myText,
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: TextField(
+            controller: _nameController,
+            decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Enter Some Text",
+                labelText: "Name"),
           ),
-          Text(
-            myText,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Enter Some Text",
-                  labelText: "Name"),
-            ),
-          )
-        ]),
-      ),
+        )
+      ]),
     );
   }
 }
