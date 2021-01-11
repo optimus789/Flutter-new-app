@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-//import 'package:newapp/name_card_widget.dart';
 import 'package:http/http.dart' as http;
+import 'package:newapp/pages/login_page.dart';
+import 'package:newapp/utils/constants.dart';
+import 'package:newapp/widgets/drawer.dart';
 import 'dart:convert';
 
-import '../drawer.dart';
+//import 'package:newapp/name_card_widget.dart';
 
 class HomePage extends StatefulWidget {
+  static const String routeName = "/home";
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -38,7 +41,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Awesome App")),
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: Text("Awesome App"),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.exit_to_app),
+              onPressed: () {
+                Constants.prefs.setBool("loggedIn", false);
+                Navigator.pushReplacementNamed(context, LoginPage.routeName);
+              })
+        ],
+      ),
       body: data != null
           ? ListView.builder(
               itemBuilder: (context, index) {
